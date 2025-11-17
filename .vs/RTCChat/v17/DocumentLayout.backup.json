@@ -1,26 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\",
+  "WorkspaceRootPath": "D:\\Projects\\git\\Bair_Chat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\rtcchat\\application\\rtcchat\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\rtcchat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:rtcchat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\rtcchat\\application\\rtcchat\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\rtcchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:rtcchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\resources\\styles\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:resources\\styles\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\mainpagev2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:mainpagev2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\platforms\\android\\resources\\values\\colors.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:platforms\\android\\resources\\values\\colors.xml||{6B79B2C4-8503-4A04-8248-ADCEF2B49CB1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\rtcchat\\application\\rtcchat\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\mvvm\\menuvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:mvvm\\menuvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\rtcchat\\application\\rtcchat\\globalxmlns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:globalxmlns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\rtcchat\\application\\rtcchat\\rtcchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:rtcchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|d:\\projects\\git\\bair_chat\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C2283A7E-38ED-4D71-B763-63BDCA062532}|RTCChat.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,73 +49,150 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 248,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MainPage.xaml",
-              "RelativeDocumentMoniker": "MainPage.xaml",
-              "ToolTip": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MainPage.xaml*",
-              "RelativeToolTip": "MainPage.xaml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-16T18:21:11.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "MainPage.xaml.cs",
-              "ToolTip": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MainPage.xaml.cs",
-              "RelativeToolTip": "MainPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "MenuVM.cs",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\MVVM\\MenuVM.cs",
+              "RelativeDocumentMoniker": "MVVM\\MenuVM.cs",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\MVVM\\MenuVM.cs",
+              "RelativeToolTip": "MVVM\\MenuVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T18:20:27.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RTCChat",
-              "DocumentMoniker": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\RTCChat.csproj",
-              "RelativeDocumentMoniker": "RTCChat.csproj",
-              "ToolTip": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\RTCChat.csproj",
-              "RelativeToolTip": "RTCChat.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-16T18:13:55.185Z",
+              "WhenOpened": "2025-11-17T15:51:13.114Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GlobalXmlns.cs",
-              "DocumentMoniker": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\GlobalXmlns.cs",
-              "RelativeDocumentMoniker": "GlobalXmlns.cs",
-              "ToolTip": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\GlobalXmlns.cs",
-              "RelativeToolTip": "GlobalXmlns.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MainPageV2.xaml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\MainPageV2.xaml",
+              "RelativeDocumentMoniker": "MainPageV2.xaml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\MainPageV2.xaml",
+              "RelativeToolTip": "MainPageV2.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T16:17:43.579Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "MainPage.xaml.cs",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\MainPage.xaml.cs",
+              "RelativeToolTip": "MainPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T18:13:29.747Z",
+              "WhenOpened": "2025-11-17T16:08:51.453Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 152,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Colors.xaml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\Resources\\Styles\\Colors.xaml",
+              "RelativeDocumentMoniker": "Resources\\Styles\\Colors.xaml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\Resources\\Styles\\Colors.xaml",
+              "RelativeToolTip": "Resources\\Styles\\Colors.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T11:06:01.44Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "D:\\Projects\\git\\RTCChat\\Application\\RTCChat\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T17:59:51.244Z",
+              "Title": "Styles.xaml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\Resources\\Styles\\Styles.xaml",
+              "RelativeDocumentMoniker": "Resources\\Styles\\Styles.xaml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\Resources\\Styles\\Styles.xaml",
+              "RelativeToolTip": "Resources\\Styles\\Styles.xaml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T11:08:29.381Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RTCChat",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
+              "RelativeDocumentMoniker": "RTCChat.csproj",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
+              "RelativeToolTip": "RTCChat.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-17T17:57:02.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{f96a0d64-71fd-316f-b663-924c78154f2a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RTCChat",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
+              "RelativeDocumentMoniker": "RTCChat.csproj",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
+              "RelativeToolTip": "RTCChat.csproj",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC4AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-17T17:37:43.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "colors.xml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\Platforms\\Android\\Resources\\values\\colors.xml",
+              "RelativeDocumentMoniker": "Platforms\\Android\\Resources\\values\\colors.xml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\Platforms\\Android\\Resources\\values\\colors.xml",
+              "RelativeToolTip": "Platforms\\Android\\Resources\\values\\colors.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-11-17T12:19:43.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T10:16:09.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "D:\\Projects\\git\\Bair_Chat\\AppShell.xaml",
+              "RelativeDocumentMoniker": "AppShell.xaml",
+              "ToolTip": "D:\\Projects\\git\\Bair_Chat\\AppShell.xaml",
+              "RelativeToolTip": "AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T10:16:07.718Z"
             }
           ]
         }

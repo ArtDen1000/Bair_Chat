@@ -3,26 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RTCChat.MainPage">
 
-    <Grid>
+    <Grid RowSpacing="60" Margin="26,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" HeightRequest="50">
-            <Border.Content>
-                <VerticalStackLayout>
-                    
-                    <Entry Placeholder="Login"/>
-                </VerticalStackLayout>
-            </Border.Content>
-        </Border>
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="ellipse1.png"/>
+                <Label Text="Bair" FontSize="36" FontFamily="Irish"/>
+            </HorizontalStackLayout>
+            <Label Text="{Binding Title}" FontSize="20" HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
 
-        <Entry Grid.Row="1" Placeholder="ID room"/>
-        <Button Text="Connect" Grid.Row="1"/>
+        <VerticalStackLayout Grid.Row="1">
+            <Border>
+                <Border.Content>
+                    <VerticalStackLayout>
+                        <Entry Placeholder="Логин"/>
+                    </VerticalStackLayout>
+                </Border.Content>
+            </Border>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout Grid.Row="2">
+            <Border>
+                <Border.Content>
+                    <VerticalStackLayout>
+                        <Entry Placeholder="ID комнаты"/>
+                    </VerticalStackLayout>
+                </Border.Content>
+            </Border>
+            <Button Style="{StaticResource ContrastButton}" Text="Подключиться"/>
+            <Label Text="проблемы с подключением" FontSize="15" HorizontalTextAlignment="Center" TextColor="{StaticResource Element2}"/>
+        </VerticalStackLayout>
 
-        <Button Grid.Row="2" Text="Create room"/>
+        <Grid Grid.Row="3">
+            <Button Text="Создать комнату" VerticalOptions="Start"/>
+            <Label Text="Beta" FontSize="15" HorizontalTextAlignment="Center" VerticalOptions="End"/>
+        </Grid>
     </Grid>
 
 </ContentPage>
