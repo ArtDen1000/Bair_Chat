@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="RTCChat.Chat">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="88"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0">
+            <Border.Content>
+                <Grid Margin="15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Login}" VerticalTextAlignment="Center" Grid.Column="0" Margin="5,0"/>
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End">
+                        <ImageButton Source="call.png" WidthRequest="28" Margin="10,0">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                        <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border.Content>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="1">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <!-- Сообщения будут здесь -->
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+
+        <Border Grid.Row="2">
+            <Border.Content>
+                <Grid VerticalOptions="Start" Padding="24,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="ellipse1.png" Command="{Binding FileCommand}" Grid.Column="0">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Border Style="{StaticResource ElementBorder}" BackgroundColor="{StaticResource Element3}" HeightRequest="40" Margin="15,0" Grid.Column="1">
+                        <Border.Content>
+                            <Entry Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="16"/>
+                        </Border.Content>
+                    </Border>
+                    <ImageButton Source="ellipse1.png" Command="{Binding SendMessageCommand}" Grid.Column="2">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                </Grid>
+            </Border.Content>
+        </Border>
+    </Grid>
+</ContentPage>

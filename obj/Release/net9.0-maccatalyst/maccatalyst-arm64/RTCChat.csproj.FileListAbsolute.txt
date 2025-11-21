@@ -253,9 +253,6 @@ D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\mauis
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\ellipse1@3x.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\ellipse1@2x.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\ellipse1.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\dotnet_bot@3x.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\dotnet_bot@2x.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\mauiimage.stamp
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\mauiimage.outputs
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\f\MauiInfo.plist

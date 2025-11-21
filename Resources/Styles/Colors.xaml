@@ -31,6 +31,7 @@
     <Color x:Key="Background">#F1F0FF</Color>
     <Color x:Key="Element1">#AF089F</Color>
     <Color x:Key="Element2">#6F64C8</Color>
+    <Color x:Key="Element3">#EDECEC</Color>
     <Color x:Key="Text1">#3A3844</Color>
     <Color x:Key="Red">#D30105</Color>
 

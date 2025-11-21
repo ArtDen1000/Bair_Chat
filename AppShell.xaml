@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPageV2}"
+        ContentTemplate="{DataTemplate local:Chat}"
         Route="MainPage" />
 
 </Shell>

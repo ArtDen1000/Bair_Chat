@@ -27,15 +27,10 @@ D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\mauifont.stamp
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\f\IrishGrover-Regular.ttf
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\f\OpenSans-Regular.ttf
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\f\OpenSans-Semibold.ttf
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-hdpi\ellipse1.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-mdpi\ellipse1.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xhdpi\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xhdpi\ellipse1.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxhdpi\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxhdpi\ellipse1.png
-D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxxhdpi\dotnet_bot.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxxhdpi\ellipse1.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml

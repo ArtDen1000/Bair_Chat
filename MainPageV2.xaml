@@ -11,7 +11,7 @@
 
         <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Image Source="ellipse1.png" VerticalOptions="Center"/>
+                <!--<Image Source="ellipse1.png" VerticalOptions="Center"/>-->
                 <Label Text="Bair" FontSize="64" FontFamily="Irish"/>
             </HorizontalStackLayout>
             <Label Text="{Binding Title}" FontSize="24" HorizontalTextAlignment="Center"/>
