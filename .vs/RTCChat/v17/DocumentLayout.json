@@ -67,8 +67,7 @@
               "ViewState": "AgIAAA8AAAAAAAAAAAAAADQAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-11-21T15:48:14.072Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -78,7 +77,7 @@
               "RelativeDocumentMoniker": "MVVM\\ChatVM.cs",
               "ToolTip": "D:\\Projects\\git\\Bair_Chat\\MVVM\\ChatVM.cs",
               "RelativeToolTip": "MVVM\\ChatVM.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACMAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T15:49:27.838Z",
               "IsPinned": true,
@@ -102,8 +101,7 @@
               "RelativeToolTip": "MVVM\\MenuVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T16:15:34.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T16:15:34.323Z"
             },
             {
               "$type": "Document",
@@ -115,8 +113,7 @@
               "RelativeToolTip": "MainPageV2.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-21T16:03:24.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T16:03:24.263Z"
             }
           ]
         },
@@ -162,8 +159,7 @@
               "RelativeToolTip": "RTCChat.csproj",
               "ViewState": "AgIAAB4AAAAAAAAAAAAmwDoAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T17:37:43.493Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:37:43.493Z"
             },
             {
               "$type": "Document",
@@ -174,8 +170,7 @@
               "ToolTip": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
               "RelativeToolTip": "RTCChat.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T17:57:02.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:57:02.229Z"
             },
             {
               "$type": "Document",
@@ -212,8 +207,7 @@
               "RelativeToolTip": "AppShell.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-17T10:16:07.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T10:16:07.718Z"
             }
           ]
         }
