@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj": {}
+    "C:\\Projects\\github\\Bair_Chat\\RTCChat.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj": {
+    "C:\\Projects\\github\\Bair_Chat\\RTCChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
+        "projectUniqueName": "C:\\Projects\\github\\Bair_Chat\\RTCChat.csproj",
         "projectName": "RTCChat",
-        "projectPath": "D:\\Projects\\git\\Bair_Chat\\RTCChat.csproj",
-        "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\git\\Bair_Chat\\obj\\",
+        "projectPath": "C:\\Projects\\github\\Bair_Chat\\RTCChat.csproj",
+        "packagesPath": "C:\\Users\\artde\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\github\\Bair_Chat\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
-          "D:\\IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Directory\\Visual Studio\\Tools and SDK\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artemiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\artde\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
