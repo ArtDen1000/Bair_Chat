@@ -36,9 +36,15 @@
 
         <VerticalStackLayout Grid.Row="1">
             <ScrollView>
-                <VerticalStackLayout>
-                    <!-- Сообщения будут здесь -->
-                </VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding Messages}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource ElementBorder}" WidthRequest="400" HeightRequest="80">
+                                <Label Text="{Binding text}"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </ScrollView>
         </VerticalStackLayout>
 

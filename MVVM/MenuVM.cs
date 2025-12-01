@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using RTCChat.Managers;
+using RTCChat.DataTemplate;
+using System.Runtime.InteropServices.JavaScript;
+using System.Text.Json;
 
 namespace RTCChat.MVVM
 {
@@ -24,30 +28,49 @@ namespace RTCChat.MVVM
             "♥ ♥ ♥"
         };
 
-        Random random = new Random();
+        private Random random = new Random();
         public MenuVM(ContentPage page)
         {
             parent = page;
 			Title = titles[random.Next(0, titles.Length)];
+
+            
 		}
 
         private bool CheckLogin() => !string.IsNullOrEmpty(Login);
 
         [RelayCommand]
-        public void Enter()
+        public async Task Join()
         {
             if (CheckLogin())
             {
-                parent.DisplayAlert("Message", "Enter", "Ok");
-            }
+				
+			}
         }
 
 		[RelayCommand]
-		public void Create()
+		public async Task Create()
 		{
-			if (CheckLogin())
-			{
-                parent.DisplayAlert("Message", $"Create room {random.Next(1000, 9999)}", "Ok");
+            if (CheckLogin())
+            {
+                await WebSocketManager.Connect();
+
+                ClientPrepareMessage message = new ClientPrepareMessage
+                {
+                    action = ClientPrepareMessage.Action.Create,
+                    name = Login,
+                };
+                await WebSocketManager.Send(message);
+
+                string res = await WebSocketManager.Get();
+                ServerPrepareResponse response = JsonSerializer.Deserialize<ServerPrepareResponse>(res);
+                await parent.DisplayAlert("Info", $"Room code: {response.room_code}", "OK");
+				DataTransportManager.SetData(("id_room", response.room_code.Value),
+                    ("id_client", response.client_id.Value),
+                    ("login", Login));
+
+
+				await Shell.Current.GoToAsync("//ChatPage");
 			}
 		}
 	}

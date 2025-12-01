@@ -18,14 +18,14 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout Grid.Row="1" VerticalOptions="End">
-            <Border Margin="0,50">
+            <Border Style="{StaticResource ElementBorder}" Margin="0,50">
                 <Border.Content>
                     <VerticalStackLayout>
                         <Entry Placeholder="Логин" Text="{Binding Login}"/>
                     </VerticalStackLayout>
                 </Border.Content>
             </Border>
-            <Button Style="{StaticResource ContrastButton}" Text="Войти в комнату" Command="{Binding EnterCommand}"/>
+            <Button Style="{StaticResource ContrastButton}" Text="Войти в комнату" Command="{Binding JoinCommand}"/>
             <Button Style="{StaticResource ContrastButton2}" Text="Создать комнату" Command="{Binding CreateCommand}"/>
             <Label Text="Beta" FontSize="15" HorizontalTextAlignment="Center" Margin="0,20"/>
         </VerticalStackLayout>
