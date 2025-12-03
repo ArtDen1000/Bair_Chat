@@ -277,3 +277,15 @@ D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\refin
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\RTCChat.pdb
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\RTCChat.genruntimeconfig.cache
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\ref\RTCChat.dll
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\menu_button@3x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\menu_button@2x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\menu_button.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\call@3x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\call@2x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\call.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperplane@3x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperplane@2x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperplane.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperclip@3x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperclip@2x.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-maccatalyst\maccatalyst-arm64\resizetizer\r\paperclip.png

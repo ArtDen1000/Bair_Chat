@@ -8,6 +8,10 @@ namespace RTCChat.DataTemplate
 {
     public class MessageData
     {
-        public string text { get; set; }
-    }
+        public string? text { get; set; }
+        public string? time { get; set; }
+        public string? client { get; set; }
+        public bool isClient { get; set; }
+        public int action { get; set; }
+	}
 }

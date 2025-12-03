@@ -16,6 +16,7 @@ namespace RTCChat.DataTemplate
 
 
 		public int? client_id { get; set; }
+		public Dictionary<string, string>? client_names { get; set; }
 		public int? room_code { get; set; }
 		public ServerPrepareError? error { get; set; }
 

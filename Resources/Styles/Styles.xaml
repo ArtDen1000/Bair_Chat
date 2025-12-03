@@ -13,6 +13,8 @@
         <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}"/>
     </Style>
 
+    
+    
     <Style TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle"/>
         <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
@@ -21,7 +23,17 @@
         <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
         <Setter Property="Padding" Value="10,0"/>
     </Style>
+    <Style x:Key="MessageBorder1" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <!--<Setter Property="VerticalOptions" Value="FillAndExpand"/>-->
+        <Setter Property="MinimumHeightRequest" Value="54"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
 
+    
+    
     <Style x:Key="ContrastButton" TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource White}" />
         <Setter Property="BackgroundColor" Value="{StaticResource Element1}" />
@@ -45,8 +57,8 @@
                     <VisualState x:Name="Normal" />
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
-                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
-                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
+                            <Setter Property="TextColor" Value="{StaticResource White}" />
+                            <Setter Property="BackgroundColor" Value="{StaticResource Gray200}" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="PointerOver" />
@@ -96,6 +108,11 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Label" x:Key="Mini">
+        <Setter Property="TextColor" Value="{StaticResource Text1}" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    
     <Style TargetType="Label" x:Key="Headline">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
         <Setter Property="FontSize" Value="32" />

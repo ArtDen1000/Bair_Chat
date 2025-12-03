@@ -1,34 +1,66 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="RTCChat.MainPageV2">
-    
-    <Grid RowSpacing="60" Margin="26,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <!--<Image Source="ellipse1.png" VerticalOptions="Center"/>-->
-                <Label Text="Bair" FontSize="64" FontFamily="Irish"/>
-            </HorizontalStackLayout>
-            <Label Text="{Binding Title}" FontSize="24" HorizontalTextAlignment="Center"/>
-        </VerticalStackLayout>
+    <Grid>
+        <Grid RowSpacing="60" Margin="26,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="1" VerticalOptions="End">
-            <Border Style="{StaticResource ElementBorder}" Margin="0,50">
+            <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <!--<Image Source="ellipse1.png" VerticalOptions="Center"/>-->
+                    <Label Text="Bair" FontSize="64" FontFamily="Irish"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding Title}" FontSize="24" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="End">
+                <Border Style="{StaticResource ElementBorder}" Margin="0,50">
+                    <Border.Content>
+                        <VerticalStackLayout>
+                            <Entry Placeholder="Логин" Text="{Binding Login}" ClearButtonVisibility="WhileEditing" Unfocused="ChangeLogin"/>
+                        </VerticalStackLayout>
+                    </Border.Content>
+                </Border>
+                <Button Style="{StaticResource ContrastButton}" Text="Войти в комнату" Command="{Binding JoinCommand}"/>
+                <Button Style="{StaticResource ContrastButton2}" Text="Создать комнату" Command="{Binding CreateCommand}"/>
+                <Label Style="{StaticResource Mini}" Text="Beta" HorizontalTextAlignment="Center" Margin="0,20"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Overlay -->
+        <Grid IsVisible="{Binding IsOverlay}">
+            <Border BackgroundColor="{StaticResource TBlack}">
                 <Border.Content>
-                    <VerticalStackLayout>
-                        <Entry Placeholder="Логин" Text="{Binding Login}"/>
-                    </VerticalStackLayout>
+                    <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="0.1*,0.8*,0.1*">
+
+                        <Border Style="{StaticResource ElementBorder}" Grid.Row="1" Grid.Column="1">
+                            <Border.Content>
+                                <Grid RowDefinitions="40,54,Auto">
+                                    <Label Text="Введите ID комнаты" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Entry Keyboard="Numeric" Placeholder="0 0 0 0" Text="{Binding Id_room}" Grid.Row="1">
+                                        <Entry.Behaviors>
+                                            <toolkit:MaskedBehavior Mask="X X X X" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" Grid.Row="2">
+                                        <Button Style="{StaticResource ContrastButton}" Text="Подключиться" Command="{Binding JoinCommand}" Grid.Column="0"/>
+                                        <Button Style="{StaticResource ContrastButton2}" Text="Отмена" Command="{Binding CancelOverlayCommand}" Grid.Column="1"/>
+                                    </Grid>
+                                    
+                                </Grid>
+                            </Border.Content>
+                        </Border>
+                        
+                    </Grid>
                 </Border.Content>
             </Border>
-            <Button Style="{StaticResource ContrastButton}" Text="Войти в комнату" Command="{Binding JoinCommand}"/>
-            <Button Style="{StaticResource ContrastButton2}" Text="Создать комнату" Command="{Binding CreateCommand}"/>
-            <Label Text="Beta" FontSize="15" HorizontalTextAlignment="Center" Margin="0,20"/>
-        </VerticalStackLayout>
+        </Grid>
     </Grid>
-    
+
 </ContentPage>

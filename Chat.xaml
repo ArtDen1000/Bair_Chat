@@ -2,77 +2,165 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behaviors="clr-namespace:RTCChat.Behaviors"
+             xmlns:local="clr-namespace:RTCChat.MVVM"
              x:Class="RTCChat.Chat">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="64"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="88"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="88"/>
+            </Grid.RowDefinitions>
 
-        <Border Grid.Row="0">
-            <Border.Content>
-                <Grid Margin="15,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Login}" VerticalTextAlignment="Center" Grid.Column="0" Margin="5,0"/>
-                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End">
-                        <ImageButton Source="call.png" WidthRequest="28" Margin="10,0">
-                            <ImageButton.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                            </ImageButton.Behaviors>
-                        </ImageButton>
-                        <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0">
-                            <ImageButton.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                            </ImageButton.Behaviors>
-                        </ImageButton>
-                    </HorizontalStackLayout>
-                </Grid>
-            </Border.Content>
-        </Border>
+            <Border Grid.Row="0">
+                <Border.Content>
+                    <Grid Margin="15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Login}" VerticalTextAlignment="Center" Grid.Column="0" Margin="5,0"/>
+                        <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End">
+                            <ImageButton Source="call.png" WidthRequest="28" Margin="10,0">
+                                <ImageButton.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                                </ImageButton.Behaviors>
+                            </ImageButton>
+                            <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0" Command="{Binding ShowOverlayCommand}">
+                                <ImageButton.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                                </ImageButton.Behaviors>
+                            </ImageButton>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border.Content>
+            </Border>
+            <ScrollView x:Name="Scroll" Padding="10" Grid.Row="1" >
+                <VerticalStackLayout x:Name="ChatLayout" VerticalOptions="End">
+                    <CollectionView ItemsSource="{Binding Messages}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource MessageBorder1}">
+                                    <Border.Content>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="20"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Style="{StaticResource Mini}" Text="{Binding client}" HorizontalOptions="Start"/>
+                                            <Label Grid.Row="1" FontSize="18" Text="{Binding text}" Margin="10, 0" HorizontalTextAlignment="Justify">
+                                                <Label.Behaviors>
+                                                    <behaviors:LabelSizeBehavior/>
+                                                </Label.Behaviors>
+                                                <Label.Triggers>
+                                                    <MultiTrigger TargetType="Label">
+                                                        <MultiTrigger.Conditions>
+                                                            <BindingCondition Binding="{Binding action}" Value="1"/>
+                                                        </MultiTrigger.Conditions>
+                                                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                                                    </MultiTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                            <Label Grid.Row="2" Style="{StaticResource Mini}" Text="{Binding time}" HorizontalOptions="End"/>
+                                        </Grid>
 
-        <VerticalStackLayout Grid.Row="1">
-            <ScrollView>
-                <CollectionView ItemsSource="{Binding Messages}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border Style="{StaticResource ElementBorder}" WidthRequest="400" HeightRequest="80">
-                                <Label Text="{Binding text}"/>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                                    </Border.Content>
+                                    <Border.Triggers>
+                                        <MultiTrigger TargetType="Border">
+                                            <MultiTrigger.Conditions>
+                                                <BindingCondition Binding="{Binding action}" Value="1"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="HorizontalOptions" Value="Center"/>
+                                            <Setter Property="BackgroundColor" Value="Transparent"/>
+                                        </MultiTrigger>
+
+                                        <MultiTrigger TargetType="Border">
+                                            <MultiTrigger.Conditions>
+                                                <BindingCondition Binding="{Binding isClient}" Value="True"/>
+                                                <BindingCondition Binding="{Binding action}" Value="0"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="HorizontalOptions" Value="End"/>
+                                        </MultiTrigger>
+                                        <MultiTrigger TargetType="Border">
+                                            <MultiTrigger.Conditions>
+                                                <BindingCondition Binding="{Binding isClient}" Value="False"/>
+                                                <BindingCondition Binding="{Binding action}" Value="0"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="HorizontalOptions" Value="Start"/>
+                                        </MultiTrigger>
+                                    </Border.Triggers>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
             </ScrollView>
-        </VerticalStackLayout>
 
-        <Border Grid.Row="2">
-            <Border.Content>
-                <Grid VerticalOptions="Start" Padding="24,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="ellipse1.png" Command="{Binding FileCommand}" Grid.Column="0">
-                        <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                        </ImageButton.Behaviors>
-                    </ImageButton>
-                    <Border Style="{StaticResource ElementBorder}" BackgroundColor="{StaticResource Element3}" HeightRequest="40" Margin="15,0" Grid.Column="1">
-                        <Border.Content>
-                            <Entry Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="16"/>
-                        </Border.Content>
-                    </Border>
-                    <ImageButton Source="ellipse1.png" Command="{Binding SendMessageCommand}" Grid.Column="2">
-                        <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                        </ImageButton.Behaviors>
-                    </ImageButton>
-                </Grid>
-            </Border.Content>
-        </Border>
+
+            <Border Grid.Row="2">
+                <Border.Content>
+                    <Grid VerticalOptions="Start" Padding="20,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="36"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Source="paperclip.png" Command="{Binding FileCommand}" Grid.Column="0">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                        <Border Style="{StaticResource ElementBorder}" BackgroundColor="{StaticResource Background}" HeightRequest="40"  Margin="10,0" Grid.Column="1">
+                            <Border.Content>
+                                <Entry x:Name="MessageEntry" Keyboard="Chat" Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="16"/>
+                            </Border.Content>
+                        </Border>
+                        <ImageButton Source="paperplane.png" Command="{Binding SendMessageCommand}"  Grid.Column="2">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                    </Grid>
+                </Border.Content>
+            </Border>
+        </Grid>
+
+        <!-- Overlay -->
+        <Grid IsVisible="{Binding IsOverlay}">
+            <Border BackgroundColor="{StaticResource TBlack}">
+                <Border.Content>
+                    <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="0.1*,0.8*,0.1*">
+
+                        <Border Style="{StaticResource ElementBorder}" Grid.Row="1" Grid.Column="1">
+                            <Border.Content>
+                                <Grid RowDefinitions="40,*,40,Auto,Auto">
+                                    <Label Text="Информация" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0"/>
+                                    <Button Text="{Binding Id_room, StringFormat='ID комнаты: {0}'}" Command="{Binding CopyIdRoomCommand}" Grid.Row="1"/>
+
+                                    <Label Text="Участники:" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="2"/>
+
+                                    <ScrollView Grid.Row="3" MaximumHeightRequest="100">
+                                        <Label Text="{Binding Clients}"/>
+                                    </ScrollView>
+
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" Grid.Row="4">
+                                        <Button Style="{StaticResource ContrastButton2}" BorderColor="{StaticResource Red}" Text="Отключиться" Command="{Binding DisconnectCommand}" Grid.Column="0"/>
+                                        <Button Style="{StaticResource ContrastButton2}" Text="Отмена" Command="{Binding CancelOverlayCommand}" Grid.Column="1"/>
+                                    </Grid>
+
+                                </Grid>
+                            </Border.Content>
+                        </Border>
+
+                    </Grid>
+                </Border.Content>
+            </Border>
+        </Grid>
     </Grid>
+    
 </ContentPage>

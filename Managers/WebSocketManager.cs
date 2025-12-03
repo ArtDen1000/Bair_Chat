@@ -15,11 +15,20 @@ namespace RTCChat.Managers
 
         public static async Task Connect()
         {
-            webSocket = new ClientWebSocket();
-            await webSocket.ConnectAsync(new Uri("ws://95.31.137.235:8888"), default);
+			webSocket = new ClientWebSocket();
+
+			await webSocket.ConnectAsync(new Uri("ws://95.31.137.235:8888"), default);
+
+			Thread t = new Thread(CheckState);
+			t.Start();
+			//await Task.Run(CheckState);
+		}
+        public static void Disconnect()
+		{
+			webSocket.Dispose();
 		}
 
-        public static async Task Send<T>(T obj)
+		public static async Task Send<T>(T obj)
         {
 			byte[] bytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));
 			await webSocket.SendAsync(bytes, WebSocketMessageType.Text, true, default);
@@ -31,14 +40,47 @@ namespace RTCChat.Managers
 		}
 		public static async Task<string> Get()
         {
-            byte[] buffer = new byte[1024];
-            var res = await webSocket.ReceiveAsync(buffer, default);
-            return Encoding.UTF8.GetString(buffer, 0, res.Count);
+            byte[] buffer = new byte[4096];
+
+			using var ms = new MemoryStream();
+			WebSocketReceiveResult result;
+
+			do
+			{
+				result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), default);
+				ms.Write(buffer, 0, result.Count);
+			}
+			while (!result.EndOfMessage);
+
+			ms.Seek(0, SeekOrigin.Begin);
+
+			//var res = await webSocket.ReceiveAsync(buffer, default);
+			return Encoding.UTF8.GetString(ms.ToArray());
 		}
 
 		public static ClientWebSocket GetWebSocket()
         {
             return webSocket;
+		}
+
+
+
+		public delegate void OnDisconnect();
+		public static event OnDisconnect? onDisconnect;
+
+		private static async void CheckState()
+		{
+			while (true)
+			{
+				if(webSocket.State != WebSocketState.Open)
+				{
+					onDisconnect?.Invoke();
+					//await Shell.Current.GoToAsync("//MainPage");
+					await Shell.Current.Navigation.PopToRootAsync();
+
+					return;
+				}
+			}
 		}
 	}
 }

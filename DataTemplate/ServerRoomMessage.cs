@@ -15,9 +15,9 @@ namespace RTCChat.DataTemplate
             Leaved
 		}
 
-        public Action? action { get; set; }
-		public int? client_id { get; set; }
-		public string? message { get; set; }
+        public Action action { get; set; }
+		public int client_id { get; set; }
+		public string? message_data { get; set; }
 
 	}
 }

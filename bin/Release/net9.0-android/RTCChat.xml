@@ -4,7 +4,91 @@
         <name>RTCChat</name>
     </assembly>
     <members>
+        <member name="T:RTCChat.Managers.Overlay">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:RTCChat.Managers.Overlay.IsOverlay">
+            <inheritdoc cref="F:RTCChat.Managers.Overlay.isOverlay"/>
+        </member>
+        <member name="F:RTCChat.Managers.Overlay.cancelOverlayCommand">
+            <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.CancelOverlayCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.Managers.Overlay.CancelOverlayCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.CancelOverlay"/>.</summary>
+        </member>
+        <member name="F:RTCChat.Managers.Overlay.showOverlayCommand">
+            <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.ShowOverlayCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.Managers.Overlay.ShowOverlayCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.ShowOverlay"/>.</summary>
+        </member>
+        <member name="F:RTCChat.Managers.Overlay.toggleOverlayCommand">
+            <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.ToggleOverlayCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.Managers.Overlay.ToggleOverlayCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.ToggleOverlay"/>.</summary>
+        </member>
+        <member name="T:RTCChat.MVVM.ChatVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Login">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.login"/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Id_room">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.id_room"/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Id_client">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.id_client"/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Message">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.message"/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Clients">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.clients"/>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.Messages">
+            <inheritdoc cref="F:RTCChat.MVVM.ChatVM.messages"/>
+        </member>
+        <member name="F:RTCChat.MVVM.ChatVM.callCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.CallCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.CallCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.Call"/>.</summary>
+        </member>
+        <member name="F:RTCChat.MVVM.ChatVM.fileCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.FileCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.FileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.File"/>.</summary>
+        </member>
+        <member name="F:RTCChat.MVVM.ChatVM.sendMessageCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.SendMessageCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.SendMessageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.SendMessage"/>.</summary>
+        </member>
+        <member name="F:RTCChat.MVVM.ChatVM.disconnectCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.DisconnectCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.DisconnectCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.Disconnect"/>.</summary>
+        </member>
+        <member name="F:RTCChat.MVVM.ChatVM.copyIdRoomCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.CopyIdRoomCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.ChatVM.CopyIdRoomCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.CopyIdRoom"/>.</summary>
+        </member>
         <member name="T:RTCChat.MVVM.MenuVM">
+            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -15,17 +99,26 @@
         <member name="P:RTCChat.MVVM.MenuVM.Login">
             <inheritdoc cref="F:RTCChat.MVVM.MenuVM.login"/>
         </member>
-        <member name="F:RTCChat.MVVM.MenuVM.enterCommand">
-            <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.EnterCommand"/>.</summary>
+        <member name="P:RTCChat.MVVM.MenuVM.Id_room">
+            <inheritdoc cref="F:RTCChat.MVVM.MenuVM.id_room"/>
         </member>
-        <member name="P:RTCChat.MVVM.MenuVM.EnterCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.Enter"/>.</summary>
+        <member name="F:RTCChat.MVVM.MenuVM.joinCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.JoinCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.MenuVM.JoinCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.Join"/>.</summary>
         </member>
         <member name="F:RTCChat.MVVM.MenuVM.createCommand">
             <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.CreateCommand"/>.</summary>
         </member>
         <member name="P:RTCChat.MVVM.MenuVM.CreateCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.Create"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.Create"/>.</summary>
+        </member>
+        <member name="F:RTCChat.MVVM.MenuVM.changeLoginCommand">
+            <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.ChangeLoginCommand"/>.</summary>
+        </member>
+        <member name="P:RTCChat.MVVM.MenuVM.ChangeLoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.ChangeLogin"/>.</summary>
         </member>
         <member name="T:RTCChat.Resource">
             <summary>
@@ -159,11 +252,29 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsOverlay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsOverlay" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Login">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Login" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id_room">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Id_room" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id_client">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Id_client" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Message">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Message" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Clients">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Clients" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Messages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Messages" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
@@ -171,11 +282,29 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsOverlay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsOverlay" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Login">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Login" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Id_room">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Id_room" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Id_client">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Id_client" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Message">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Message" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Clients">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Clients" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Messages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Messages" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
         </member>
     </members>
 </doc>

@@ -64,8 +64,15 @@ obj\Release\net9.0-android\android-arm64\aot\System.Linq.Expressions.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Linq.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Memory.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Net.Http.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.NameResolution.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.NetworkInformation.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Net.Primitives.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Net.Requests.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.Security.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.Sockets.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.WebHeaderCollection.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.WebSockets.Client.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Net.WebSockets.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Numerics.Vectors.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.ObjectModel.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Private.Uri.dll.so
@@ -78,6 +85,7 @@ obj\Release\net9.0-android\android-arm64\aot\System.Security.Cryptography.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Text.Encodings.Web.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Text.Json.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Text.RegularExpressions.dll.so
+obj\Release\net9.0-android\android-arm64\aot\System.Threading.Channels.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Threading.Thread.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Threading.dll.so
 obj\Release\net9.0-android\android-arm64\aot\System.Web.HttpUtility.dll.so
