@@ -31,9 +31,14 @@
         <Setter Property="MinimumHeightRequest" Value="54"/>
         <Setter Property="Margin" Value="0,5"/>
     </Style>
+    <Style x:Key="ContrastBorder1" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
+        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Setter Property="Stroke" Value="{StaticResource Element1}"/>
+    </Style>
 
-    
-    
+
     <Style x:Key="ContrastButton" TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource White}" />
         <Setter Property="BackgroundColor" Value="{StaticResource Element1}" />
@@ -50,7 +55,7 @@
         <Setter Property="BorderWidth" Value="0"/>
         <Setter Property="CornerRadius" Value="15"/>
         <Setter Property="Padding" Value="14,10"/>
-        <Setter Property="Margin" Value="0,10"/>
+        <!--<Setter Property="Margin" Value="0,10"/>-->
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">

@@ -11,12 +11,13 @@ namespace RTCChat.Behaviors
 		protected override void OnAttachedTo(Label bindable)
 		{
 			base.OnAttachedTo(bindable);
-			bindable.SizeChanged += OnSizeChanged;
+			bindable.ParentChanged += OnSizeChanged;
+			OnSizeChanged(bindable, EventArgs.Empty);
 		}
 
 		protected override void OnDetachingFrom(Label bindable)
 		{
-			bindable.SizeChanged -= OnSizeChanged;
+			bindable.ParentChanged -= OnSizeChanged;
 			base.OnDetachingFrom(bindable);
 		}
 

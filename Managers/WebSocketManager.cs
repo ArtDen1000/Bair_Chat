@@ -12,19 +12,18 @@ namespace RTCChat.Managers
     public static class WebSocketManager
     {
         private static ClientWebSocket webSocket;
-
-        public static async Task Connect()
+		public static async Task Connect()
         {
 			webSocket = new ClientWebSocket();
 
-			await webSocket.ConnectAsync(new Uri("ws://95.31.137.235:8888"), default);
+			await webSocket.ConnectAsync(new Uri(Preferences.Get("ip", "ws://0.0.0.0:22")), default);
 
-			Thread t = new Thread(CheckState);
-			t.Start();
-			//await Task.Run(CheckState);
+			Thread thread = new Thread(CheckState);
+			thread.Start();
 		}
         public static void Disconnect()
 		{
+			Shell.Current.Navigation.PopToRootAsync();
 			webSocket.Dispose();
 		}
 
@@ -68,7 +67,7 @@ namespace RTCChat.Managers
 		public delegate void OnDisconnect();
 		public static event OnDisconnect? onDisconnect;
 
-		private static async void CheckState()
+		private static async void CheckState(object obj)
 		{
 			while (true)
 			{

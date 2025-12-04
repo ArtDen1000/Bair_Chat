@@ -13,8 +13,6 @@ namespace RTCChat.MVVM
 {
     public partial class MenuVM : Overlay
     {
-        private ContentPage parent;
-
 		[ObservableProperty] private string title = string.Empty;
         [ObservableProperty] public string login = "User";
         [ObservableProperty] public string id_room;
@@ -31,9 +29,8 @@ namespace RTCChat.MVVM
         };
 
         private Random random = new Random();
-        public MenuVM(ContentPage page)
+        public MenuVM()
         {
-            parent = page;
 			Title = titles[random.Next(0, titles.Length)];
 
             //if(WebSocketManager.GetWebSocket() != null)  WebSocketManager.Disconnect();
@@ -47,10 +44,9 @@ namespace RTCChat.MVVM
 
 		private bool CheckLogin() => !string.IsNullOrEmpty(Login);
 
-        [RelayCommand]
         public async Task Join()
         {
-            if (IsOverlay && !string.IsNullOrEmpty(Id_room))
+            if (!string.IsNullOrEmpty(Id_room))
             {
 				if (CheckLogin())
 				{
@@ -66,7 +62,6 @@ namespace RTCChat.MVVM
 					await JoinRoom();
 				}
 			}
-			else ShowOverlay();
 		}
 
 		[RelayCommand]

@@ -10,7 +10,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="64"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="88"/>
+                <RowDefinition Height="64"/>
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0">
@@ -27,7 +27,7 @@
                                     <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
                                 </ImageButton.Behaviors>
                             </ImageButton>
-                            <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0" Command="{Binding ShowOverlayCommand}">
+                            <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0" Clicked="ShowInfo">
                                 <ImageButton.Behaviors>
                                     <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
                                 </ImageButton.Behaviors>
@@ -53,10 +53,10 @@
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Row="0" Style="{StaticResource Mini}" Text="{Binding client}" HorizontalOptions="Start"/>
-                                            <Label Grid.Row="1" FontSize="18" Text="{Binding text}" Margin="10, 0" HorizontalTextAlignment="Justify">
-                                                <Label.Behaviors>
+                                            <Label Grid.Row="1" FontSize="18" Text="{Binding _text}" Margin="10, 0" HorizontalTextAlignment="Start">
+                                                <!--<Label.Behaviors>
                                                     <behaviors:LabelSizeBehavior/>
-                                                </Label.Behaviors>
+                                                </Label.Behaviors>-->
                                                 <Label.Triggers>
                                                     <MultiTrigger TargetType="Label">
                                                         <MultiTrigger.Conditions>
@@ -115,9 +115,9 @@
                                 <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
                             </ImageButton.Behaviors>
                         </ImageButton>
-                        <Border Style="{StaticResource ElementBorder}" BackgroundColor="{StaticResource Background}" HeightRequest="40"  Margin="10,0" Grid.Column="1">
+                        <Border Style="{StaticResource ElementBorder}" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource Background}" HeightRequest="46"  Margin="10,0" Grid.Column="1">
                             <Border.Content>
-                                <Entry x:Name="MessageEntry" Keyboard="Chat" Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="16"/>
+                                <Entry x:Name="MessageEntry" Keyboard="Chat" Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="18"/>
                             </Border.Content>
                         </Border>
                         <ImageButton Source="paperplane.png" Command="{Binding SendMessageCommand}"  Grid.Column="2">
@@ -132,29 +132,19 @@
 
         <!-- Overlay -->
         <Grid IsVisible="{Binding IsOverlay}">
-            <Border BackgroundColor="{StaticResource TBlack}">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseOverlayCommand}"/>
+            </Grid.GestureRecognizers>
+            
+            <Border BackgroundColor="{StaticResource TBackground}">
+                
                 <Border.Content>
                     <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="0.1*,0.8*,0.1*">
 
-                        <Border Style="{StaticResource ElementBorder}" Grid.Row="1" Grid.Column="1">
-                            <Border.Content>
-                                <Grid RowDefinitions="40,*,40,Auto,Auto">
-                                    <Label Text="Информация" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0"/>
-                                    <Button Text="{Binding Id_room, StringFormat='ID комнаты: {0}'}" Command="{Binding CopyIdRoomCommand}" Grid.Row="1"/>
-
-                                    <Label Text="Участники:" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="2"/>
-
-                                    <ScrollView Grid.Row="3" MaximumHeightRequest="100">
-                                        <Label Text="{Binding Clients}"/>
-                                    </ScrollView>
-
-                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" Grid.Row="4">
-                                        <Button Style="{StaticResource ContrastButton2}" BorderColor="{StaticResource Red}" Text="Отключиться" Command="{Binding DisconnectCommand}" Grid.Column="0"/>
-                                        <Button Style="{StaticResource ContrastButton2}" Text="Отмена" Command="{Binding CancelOverlayCommand}" Grid.Column="1"/>
-                                    </Grid>
-
-                                </Grid>
-                            </Border.Content>
+                        <Border x:Name="OverlayBorder" Style="{StaticResource ElementBorder}" Padding="10" Grid.Row="1"  Grid.Column="1">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PassCommand}"/>
+                            </Border.GestureRecognizers>
                         </Border>
 
                     </Grid>

@@ -1,14 +1,17 @@
 namespace RTCChat;
+
 using MVVM;
 using RTCChat.Managers;
 
 public partial class Chat : ContentPage
 {
+	private ChatVM viewModel;
+	public int widthArea => (int)(ChatLayout.Width);
 	public Chat()
 	{
 		InitializeComponent();
-		ChatVM page = new ChatVM(this);
-		BindingContext = page;
+		viewModel = new ChatVM();
+		BindingContext = viewModel;
 
 		ChatLayout.SizeChanged += async (s, e) =>
 		{
@@ -16,12 +19,51 @@ public partial class Chat : ContentPage
 		};
 		MessageEntry.Completed += async (s, e) =>
 		{
-			await page.SendMessage();
+			await viewModel.SendMessage();
 		};
+
+		viewModel.SetOrigin(OverlayBorder);
 	}
 	protected override bool OnBackButtonPressed()
 	{
-		WebSocketManager.Disconnect();
+		Label info = new Label
+		{
+			Text = "Отключиться?",
+			FontAttributes = FontAttributes.Bold,
+			HorizontalTextAlignment = TextAlignment.Center,
+			VerticalTextAlignment = TextAlignment.Center
+		};
+
+		Button disconnect = new Button
+		{
+			Style = Application.Current.Resources["ContrastButton2"] as Style,
+			BorderColor = Application.Current.Resources["Red"] as Color,
+			Text = $"Да",
+			Margin = new Thickness(0, 20, 0, 0),
+			Command = new Command(() =>
+			{
+				WebSocketManager.Disconnect();
+			}),
+		};
+
+		Grid grid = new Grid
+		{
+			RowDefinitions = {
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+				},
+			Children =
+				{
+					info,
+					disconnect,
+				}
+		};
+		grid.SetRow(info, 0);
+		grid.SetRow(disconnect, 1);
+
+		viewModel.AddOverlay(grid);
+		viewModel.ShowOverlay();
+
 		return true;
 
 		// // Use the line above if you want to just disable the Back action. 
@@ -34,5 +76,82 @@ public partial class Chat : ContentPage
 		//     return true;
 		// }
 		// return false;
+	}
+	public void ShowInfo(object sender, EventArgs e)
+	{
+		Label info = new Label
+		{
+			Text = "Информация",
+			FontAttributes = FontAttributes.Bold,
+			HorizontalTextAlignment = TextAlignment.Start,
+			VerticalTextAlignment = TextAlignment.Center
+		};
+		Label clients = new Label
+		{
+			Text = "Участники:",
+			FontAttributes = FontAttributes.Bold,
+			HorizontalTextAlignment = TextAlignment.Center,
+			VerticalTextAlignment = TextAlignment.Center,
+			Margin = new Thickness(0,20,0,0),
+		};
+		Label names = new Label
+		{
+			HorizontalTextAlignment = TextAlignment.Center
+		};
+		names.SetBinding(Label.TextProperty, "Clients");
+
+		Button id = new Button
+		{
+			Text = $"ID: {viewModel.Id_room.ToString()}",
+			HorizontalOptions = LayoutOptions.End,
+			Padding = new Thickness(5, 0),
+			Command = new Command(() =>
+			{
+				Clipboard.SetTextAsync(viewModel.Id_room.ToString());
+			}),
+		};
+		Button disconnect = new Button
+		{
+			Style = Application.Current.Resources["ContrastButton2"] as Style,
+			BorderColor = Application.Current.Resources["Red"] as Color,
+			Text = $"Отключиться",
+			Margin = new Thickness(0,20,0,0),
+			Command = new Command(() =>
+			{
+				OnBackButtonPressed();
+			}),
+		};
+
+		ScrollView scroll = new ScrollView
+		{
+			Content = names,
+			MaximumHeightRequest = 200,
+		};
+
+		Grid grid = new Grid
+		{
+			RowDefinitions = {
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+					new RowDefinition(new GridLength(1, GridUnitType.Auto)),
+				},
+			Children =
+				{
+					info,
+					id,
+					clients,
+					disconnect,
+					scroll
+				}
+		};
+		grid.SetRow(info, 0);
+		grid.SetRow(clients, 1);
+		grid.SetRow(id, 0);
+		grid.SetRow(disconnect, 3);
+		grid.SetRow(scroll, 2);
+
+		viewModel.AddOverlay(grid);
+		viewModel.ShowOverlay();
 	}
 }

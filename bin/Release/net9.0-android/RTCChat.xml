@@ -13,11 +13,11 @@
         <member name="P:RTCChat.Managers.Overlay.IsOverlay">
             <inheritdoc cref="F:RTCChat.Managers.Overlay.isOverlay"/>
         </member>
-        <member name="F:RTCChat.Managers.Overlay.cancelOverlayCommand">
-            <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.CancelOverlayCommand"/>.</summary>
+        <member name="F:RTCChat.Managers.Overlay.closeOverlayCommand">
+            <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.CloseOverlayCommand"/>.</summary>
         </member>
-        <member name="P:RTCChat.Managers.Overlay.CancelOverlayCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.CancelOverlay"/>.</summary>
+        <member name="P:RTCChat.Managers.Overlay.CloseOverlayCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.CloseOverlay"/>.</summary>
         </member>
         <member name="F:RTCChat.Managers.Overlay.showOverlayCommand">
             <summary>The backing field for <see cref="P:RTCChat.Managers.Overlay.ShowOverlayCommand"/>.</summary>
@@ -32,8 +32,6 @@
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.Managers.Overlay.ToggleOverlay"/>.</summary>
         </member>
         <member name="T:RTCChat.MVVM.ChatVM">
-            <inheritdoc/>
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -75,20 +73,7 @@
         <member name="P:RTCChat.MVVM.ChatVM.SendMessageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.SendMessage"/>.</summary>
         </member>
-        <member name="F:RTCChat.MVVM.ChatVM.disconnectCommand">
-            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.DisconnectCommand"/>.</summary>
-        </member>
-        <member name="P:RTCChat.MVVM.ChatVM.DisconnectCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.Disconnect"/>.</summary>
-        </member>
-        <member name="F:RTCChat.MVVM.ChatVM.copyIdRoomCommand">
-            <summary>The backing field for <see cref="P:RTCChat.MVVM.ChatVM.CopyIdRoomCommand"/>.</summary>
-        </member>
-        <member name="P:RTCChat.MVVM.ChatVM.CopyIdRoomCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.ChatVM.CopyIdRoom"/>.</summary>
-        </member>
         <member name="T:RTCChat.MVVM.MenuVM">
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -101,12 +86,6 @@
         </member>
         <member name="P:RTCChat.MVVM.MenuVM.Id_room">
             <inheritdoc cref="F:RTCChat.MVVM.MenuVM.id_room"/>
-        </member>
-        <member name="F:RTCChat.MVVM.MenuVM.joinCommand">
-            <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.JoinCommand"/>.</summary>
-        </member>
-        <member name="P:RTCChat.MVVM.MenuVM.JoinCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:RTCChat.MVVM.MenuVM.Join"/>.</summary>
         </member>
         <member name="F:RTCChat.MVVM.MenuVM.createCommand">
             <summary>The backing field for <see cref="P:RTCChat.MVVM.MenuVM.CreateCommand"/>.</summary>

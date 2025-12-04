@@ -16,23 +16,19 @@ namespace RTCChat.MVVM
 {
 	public partial class ChatVM : Overlay
 	{
-		private ContentPage parent;
-
 		[ObservableProperty] private string login = "User";
 		[ObservableProperty] private int id_room;
 		[ObservableProperty] private int id_client;
 		[ObservableProperty] private string message;
-		[ObservableProperty] private string clients = "123123";
+		[ObservableProperty] private string clients;
 		[ObservableProperty] ObservableCollection<MessageData> messages = new ObservableCollection<MessageData>();
 
 		private List<FileResult> selectedFiles;
 
 		private Dictionary<string, string> _clients;
 
-		public ChatVM(ContentPage page)
+		public ChatVM()
 		{
-			parent = page;
-
 			Id_room = (int)DataTransportManager.GetData("id_room");
 			Id_client = (int)DataTransportManager.GetData("id_client");
 			Login = (string)DataTransportManager.GetData("login");
@@ -51,16 +47,14 @@ namespace RTCChat.MVVM
 			{
 				var res = await WebSocketManager.Get();
 				ServerRoomMessage roomMessage = JsonSerializer.Deserialize<ServerRoomMessage>(res);
-				//Messages.Add(new MessageData()
-				//{
-				//	text = res, action = 0
-				//});
+
 				switch (roomMessage.action)
 				{
 					case ServerRoomMessage.Action.Joined:
 						Messages.Add(new MessageData()
 						{
 							text = $"{roomMessage.message_data} присоединился!",
+							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
 							action = 1
 						});
 						_clients.Add(roomMessage.client_id.ToString(), roomMessage.message_data);
@@ -70,6 +64,7 @@ namespace RTCChat.MVVM
 						Messages.Add(new MessageData()
 						{
 							text = $"{_clients[roomMessage.client_id.ToString()]} отключился!",
+							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
 							action = 1
 						});
 						_clients.Remove(roomMessage.client_id.ToString());
@@ -82,6 +77,7 @@ namespace RTCChat.MVVM
 							time = DateTime.Now.ToString("HH:mm"),
 							client = _clients[roomMessage.client_id.ToString()],
 							isClient = roomMessage.client_id == Id_client,
+							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
 							action = 0
 						});
 						break;
@@ -102,13 +98,13 @@ namespace RTCChat.MVVM
 			{
 				var files = await FilePicker.Default.PickMultipleAsync();
 				selectedFiles = files.ToList();
-				await parent.DisplayAlert($"{selectedFiles.Count} files Selected", string.Join('\n', from f in selectedFiles select f.FileName), "Ok");
+				await Shell.Current.DisplayAlert($"{selectedFiles.Count} files Selected", string.Join('\n', from f in selectedFiles select f.FileName), "Ok");
 				return (from f in selectedFiles select f.FileName).ToArray();
 
 			}
 			catch (Exception ex)
 			{
-				await parent.DisplayAlert("Error", ex.Message, "Ok");
+				await Shell.Current.DisplayAlert("Error", ex.Message, "Ok");
 			}
 
 			return null;
@@ -122,17 +118,6 @@ namespace RTCChat.MVVM
 				await WebSocketManager.Send(Message);
 				Message = string.Empty;
 			}
-		}
-		[RelayCommand]
-		public void Disconnect()
-		{
-			WebSocketManager.Disconnect();
-		}
-
-		[RelayCommand]
-		public void CopyIdRoom()
-		{
-			Clipboard.SetTextAsync(Id_room.ToString());
 		}
 	}
 }

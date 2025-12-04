@@ -480,3 +480,9 @@ D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxhd
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxhdpi\paperplane.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxxhdpi\paperclip.png
 D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxxhdpi\paperplane.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-hdpi\cross.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-mdpi\cross.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xhdpi\cross.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxhdpi\cross.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\resizetizer\r\drawable-xxxhdpi\cross.png
+D:\Projects\git\Bair_Chat\obj\Release\net9.0-android\assets\ip.txt

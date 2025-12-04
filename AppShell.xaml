@@ -13,8 +13,5 @@
     <ShellContent
         ContentTemplate="{DataTemplate local:Chat}"
         Route="ChatPage" />
-    <ShellContent
-    ContentTemplate="{DataTemplate local:ChatMenu}"
-    Route="ChatMenu" />
 
 </Shell>
