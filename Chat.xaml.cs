@@ -15,7 +15,8 @@ public partial class Chat : ContentPage
 
 		ChatLayout.SizeChanged += async (s, e) =>
 		{
-			await Scroll.ScrollToAsync(ChatLayout, ScrollToPosition.End, false);
+			if(Scroll.ScrollY + Scroll.Height > ChatLayout.Height - 200)
+				await Scroll.ScrollToAsync(ChatLayout, ScrollToPosition.End, false);
 		};
 		MessageEntry.Completed += async (s, e) =>
 		{

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTCChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b993a53c22dfa2ced03438a6ffaf2413ef29225c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+38f3c2ba8a21494d72a665a63ba754bef052d865")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTCChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTCChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
