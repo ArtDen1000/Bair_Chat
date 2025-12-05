@@ -17,7 +17,6 @@ namespace RTCChat.MVVM
         [ObservableProperty] public string login = "User";
         [ObservableProperty] public string id_room;
 
-
 		private string[] titles =
         {
             "До бурята не дошли",
@@ -33,34 +32,17 @@ namespace RTCChat.MVVM
         {
 			Title = titles[random.Next(0, titles.Length)];
 
-            //if(WebSocketManager.GetWebSocket() != null)  WebSocketManager.Disconnect();
-			//Shell.Current.Navigated += (s, e) =>
-			//{
-			//	if(Shell. == this)
-			//};
-
 			Login = Preferences.Get("login", "User");
 		}
 
 		private bool CheckLogin() => !string.IsNullOrEmpty(Login);
+		private bool CheckId() => !string.IsNullOrEmpty(Id_room);
 
-        public async Task Join()
+		public async Task Join()
         {
-            if (!string.IsNullOrEmpty(Id_room))
+            if (CheckLogin() && CheckId())
             {
-				if (CheckLogin())
-				{
-					await WebSocketManager.Connect();
-					ClientPrepareMessage message = new ClientPrepareMessage
-					{
-						action = ClientPrepareMessage.Action.Join,
-						name = Login,
-						room_code = int.Parse(Id_room.Replace(" ", string.Empty)),
-					};
-					await WebSocketManager.Send(message);
-
-					await JoinRoom();
-				}
+				await WebSocketManager.Connect($"/join?name={Login}&room={int.Parse(Id_room.Replace(" ", string.Empty))}", async () => await JoinRoom());
 			}
 		}
 
@@ -69,22 +51,14 @@ namespace RTCChat.MVVM
 		{
             if (CheckLogin())
             {
-                await WebSocketManager.Connect();
-
-                ClientPrepareMessage message = new ClientPrepareMessage
-                {
-                    action = ClientPrepareMessage.Action.Create,
-                    name = Login,
-                };
-                await WebSocketManager.Send(message);
-
-                await JoinRoom();
+                await WebSocketManager.Connect($"/create?name={Login}", async () => await JoinRoom());
 			}
 		}
 
         private async Task JoinRoom()
         {
 			string res = await WebSocketManager.Get();
+
 
 			ServerPrepareResponse response = JsonSerializer.Deserialize<ServerPrepareResponse>(res);
             if (response.error != null) return;

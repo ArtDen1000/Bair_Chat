@@ -37,68 +37,7 @@
                 </Border.Content>
             </Border>
             <ScrollView x:Name="Scroll" Padding="10" Grid.Row="1" >
-                <VerticalStackLayout x:Name="ChatLayout" VerticalOptions="End">
-                    <CollectionView ItemsSource="{Binding Messages}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Border Style="{StaticResource MessageBorder1}">
-                                    <Border.Content>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="20"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Row="0" Style="{StaticResource Mini}" Text="{Binding client}" HorizontalOptions="Start"/>
-                                            <Label Grid.Row="1" FontSize="18" Text="{Binding _text}" Margin="10, 0" HorizontalTextAlignment="Start">
-                                                <!--<Label.Behaviors>
-                                                    <behaviors:LabelSizeBehavior/>
-                                                </Label.Behaviors>-->
-                                                <Label.Triggers>
-                                                    <MultiTrigger TargetType="Label">
-                                                        <MultiTrigger.Conditions>
-                                                            <BindingCondition Binding="{Binding action}" Value="1"/>
-                                                        </MultiTrigger.Conditions>
-                                                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
-                                                    </MultiTrigger>
-                                                </Label.Triggers>
-                                            </Label>
-                                            <Label Grid.Row="2" Style="{StaticResource Mini}" Text="{Binding time}" HorizontalOptions="End"/>
-                                        </Grid>
-
-                                    </Border.Content>
-                                    <Border.Triggers>
-                                        <MultiTrigger TargetType="Border">
-                                            <MultiTrigger.Conditions>
-                                                <BindingCondition Binding="{Binding action}" Value="1"/>
-                                            </MultiTrigger.Conditions>
-                                            <Setter Property="HorizontalOptions" Value="Center"/>
-                                            <Setter Property="BackgroundColor" Value="Transparent"/>
-                                        </MultiTrigger>
-
-                                        <MultiTrigger TargetType="Border">
-                                            <MultiTrigger.Conditions>
-                                                <BindingCondition Binding="{Binding isClient}" Value="True"/>
-                                                <BindingCondition Binding="{Binding action}" Value="0"/>
-                                            </MultiTrigger.Conditions>
-                                            <Setter Property="HorizontalOptions" Value="End"/>
-                                        </MultiTrigger>
-                                        <MultiTrigger TargetType="Border">
-                                            <MultiTrigger.Conditions>
-                                                <BindingCondition Binding="{Binding isClient}" Value="False"/>
-                                                <BindingCondition Binding="{Binding action}" Value="0"/>
-                                            </MultiTrigger.Conditions>
-                                            <Setter Property="HorizontalOptions" Value="Start"/>
-                                        </MultiTrigger>
-                                    </Border.Triggers>
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="ChatLayout" VerticalOptions="End"/>
             </ScrollView>
 
 

@@ -11,6 +11,9 @@ using CommunityToolkit.Mvvm.Input;
 using RTCChat.DataTemplate;
 using RTCChat.Managers;
 using System.Linq;
+using RTCChat.DataTemplate.Messages;
+using System.Collections;
+using System.Net.Mime;
 
 namespace RTCChat.MVVM
 {
@@ -21,11 +24,12 @@ namespace RTCChat.MVVM
 		[ObservableProperty] private int id_client;
 		[ObservableProperty] private string message;
 		[ObservableProperty] private string clients;
-		[ObservableProperty] ObservableCollection<MessageData> messages = new ObservableCollection<MessageData>();
 
 		private List<FileResult> selectedFiles;
 
 		private Dictionary<string, string> _clients;
+
+		public ChatManager ChatManager;
 
 		public ChatVM()
 		{
@@ -51,34 +55,21 @@ namespace RTCChat.MVVM
 				switch (roomMessage.action)
 				{
 					case ServerRoomMessage.Action.Joined:
-						Messages.Add(new MessageData()
-						{
-							text = $"{roomMessage.message_data} присоединился!",
-							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
-							action = 1
-						});
 						_clients.Add(roomMessage.client_id.ToString(), roomMessage.message_data);
 						Clients = string.Join('\n', _clients.Values);
+
+						ChatManager.AddMessage(new MessageData(_clients[roomMessage.client_id.ToString()], MessageData.Action.Joined));
 						break;
 					case ServerRoomMessage.Action.Leaved:
-						Messages.Add(new MessageData()
-						{
-							text = $"{_clients[roomMessage.client_id.ToString()]} отключился!",
-							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
-							action = 1
-						});
+						ChatManager.AddMessage(new MessageData(_clients[roomMessage.client_id.ToString()], MessageData.Action.Leaved));
+
 						_clients.Remove(roomMessage.client_id.ToString());
 						Clients = string.Join('\n', _clients.Values);
 						break;
 					case ServerRoomMessage.Action.Sended:
-						Messages.Add(new MessageData()
+						ChatManager.AddMessage(new TextMessage(roomMessage.message_data, _clients[roomMessage.client_id.ToString()])
 						{
-							text = roomMessage.message_data,
-							time = DateTime.Now.ToString("HH:mm"),
-							client = _clients[roomMessage.client_id.ToString()],
 							isClient = roomMessage.client_id == Id_client,
-							widthArea = (Shell.Current.CurrentPage as Chat).widthArea,
-							action = 0
 						});
 						break;
 				}
@@ -98,7 +89,14 @@ namespace RTCChat.MVVM
 			{
 				var files = await FilePicker.Default.PickMultipleAsync();
 				selectedFiles = files.ToList();
-				await Shell.Current.DisplayAlert($"{selectedFiles.Count} files Selected", string.Join('\n', from f in selectedFiles select f.FileName), "Ok");
+				//await Shell.Current.DisplayAlert($"{selectedFiles.Count} files Selected", string.Join('\n', from f in selectedFiles select f.FileName), "Ok");
+				foreach(string uri in from file in selectedFiles select file.FullPath)
+				{
+					ChatManager.AddMessage(new PictureMessage(uri, Login)
+					{
+						isClient = true,
+					});
+				}
 				return (from f in selectedFiles select f.FileName).ToArray();
 
 			}

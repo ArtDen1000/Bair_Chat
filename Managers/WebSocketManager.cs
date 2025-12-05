@@ -12,14 +12,31 @@ namespace RTCChat.Managers
     public static class WebSocketManager
     {
         private static ClientWebSocket webSocket;
-		public static async Task Connect()
+		public enum Action
+		{
+			Join, Create
+		}
+		public static async Task<bool> Connect(string path, System.Action action)
         {
-			webSocket = new ClientWebSocket();
+			try
+			{
+				webSocket = new ClientWebSocket();
 
-			await webSocket.ConnectAsync(new Uri(Preferences.Get("ip", "ws://0.0.0.0:22")), default);
+				await webSocket.ConnectAsync(new Uri(Preferences.Get("ip", "ws://0.0.0.0:22") + path), default);
 
-			Thread thread = new Thread(CheckState);
-			thread.Start();
+				action.Invoke();
+
+				Thread thread = new Thread(CheckState);
+				thread.Start();
+
+				return true;
+			}
+			catch(WebSocketException ex)
+			{
+				await Shell.Current.DisplayAlert("Ошибка подключения", ex.Message, "Ок");
+				return false;
+			}
+
 		}
         public static void Disconnect()
 		{

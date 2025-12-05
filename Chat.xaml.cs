@@ -13,6 +13,8 @@ public partial class Chat : ContentPage
 		viewModel = new ChatVM();
 		BindingContext = viewModel;
 
+		viewModel.ChatManager = new ChatManager(ChatLayout);
+
 		ChatLayout.SizeChanged += async (s, e) =>
 		{
 			if(Scroll.ScrollY + Scroll.Height > ChatLayout.Height - 200)

@@ -4,26 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTCChat.DataTemplate
+namespace RTCChat.DataTemplate.Messages
 {
-    public class MessageData
-    {
-        public string text { get; set; }
-        public string? time { get; set; }
-        public string? client { get; set; }
-		public int widthArea { get; set; }
-		public bool isClient { get; set; }
-        public int action { get; set; }
+	public class TextMessage : MessageData
+	{
+		public TextMessage(string text, string client) : base(client, Action.Sended)
+		{
+			type = Type.Text;
+			formatText = text;
+		}
 
-        public string _text
-        {
-            get
-            {
+		private string text;
+
+		public string formatText
+		{
+			get
+			{
+				return text;
+			}
+			private set
+			{
 				StringBuilder result = new StringBuilder();
 
-				string[] line = text.Split('\n');
+				string[] line = value.Split('\n');
 				for (int row = 0; row < line.Length; row++)
-                {
+				{
 					int[] wordSize;
 					string[] words = line[row].Split(' ');
 
@@ -33,7 +38,7 @@ namespace RTCChat.DataTemplate
 					for (int i = 0; i < wordSize.Length; i++)
 					{
 						tmp += wordSize[i];
-						if (tmp > (int)Math.Round(widthArea * 0.9f))
+						if (tmp > (int)Math.Round(Shell.Current.Window.Width * 0.8f))
 						{
 							i--;
 							result.AppendLine();
@@ -44,12 +49,12 @@ namespace RTCChat.DataTemplate
 							result.Append(words[i] + ' ');
 						}
 					}
-					if(row != line.Length - 1) result.AppendLine();
+					if (row != line.Length - 1) result.AppendLine();
 				}
 
-                
-                
-                return result.ToString();
+
+
+				text = result.ToString();
 			}
 		}
 	}
