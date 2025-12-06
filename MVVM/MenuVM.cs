@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RTCChat.Managers;
+using Microsoft.Maui.Platform;
 using RTCChat.DataTemplate;
-using System.Text.Json;
+using RTCChat.Managers;
 
 namespace RTCChat.MVVM
 {
-    public partial class MenuVM : Overlay
+    public partial class MenuVM : ObservableObject
     {
 		[ObservableProperty] private string title = string.Empty;
         [ObservableProperty] public string login = "User";
-        [ObservableProperty] public string id_room;
+        [ObservableProperty] public string id_room_format;
+		[ObservableProperty] public bool isOverlay;
+
+		private string id_room { get { return Id_room_format.Replace(" ", string.Empty); } set => id_room_format = value; }
 
 		private string[] titles =
         {
@@ -27,23 +31,53 @@ namespace RTCChat.MVVM
             "Ловит даже в кладовке!"
         };
 
-        private Random random = new Random();
+		public Overlay OverlayManager = new Overlay();
+
+		private Random random = new Random();
         public MenuVM()
         {
 			Title = titles[random.Next(0, titles.Length)];
 
 			Login = Preferences.Get("login", "User");
+
+			if(!Preferences.Get("isSetTheme", false))
+			{
+				OpenColorSettings();
+				Preferences.Set("isSetTheme", true);
+			}
+
+			OverlayManager.OverlayVisibleChanged += (isVisible) => IsOverlay = isVisible;
 		}
 
+		//Connect
+
 		private bool CheckLogin() => !string.IsNullOrEmpty(Login);
-		private bool CheckId() => !string.IsNullOrEmpty(Id_room);
+		private bool CheckId() => !string.IsNullOrEmpty(id_room);
 
 		public async Task Join()
         {
             if (CheckLogin() && CheckId())
             {
-				await WebSocketManager.Connect($"/join?name={Login}&room={int.Parse(Id_room.Replace(" ", string.Empty))}", async () => await JoinRoom());
+				await WebSocketManager.Connect($"/join?name={Login}&room={id_room}", async () => await JoinRoom());
 			}
+		}
+
+		private async Task JoinRoom()
+		{
+			string res = await WebSocketManager.Get();
+
+
+			ServerPrepareResponse response = JsonSerializer.Deserialize<ServerPrepareResponse>(res);
+			if (response.error != null) return;
+
+			DataTransportManager.SetData(("id_room", response.room_code),
+				("id_client", response.client_id),
+				("login", Login),
+				("client_names", response.client_names));
+
+
+			//await Shell.Current.GoToAsync("//ChatPage");
+			await Shell.Current.Navigation.PushAsync(new Chat());
 		}
 
 		[RelayCommand]
@@ -55,24 +89,7 @@ namespace RTCChat.MVVM
 			}
 		}
 
-        private async Task JoinRoom()
-        {
-			string res = await WebSocketManager.Get();
-
-
-			ServerPrepareResponse response = JsonSerializer.Deserialize<ServerPrepareResponse>(res);
-            if (response.error != null) return;
-
-			DataTransportManager.SetData(("id_room", response.room_code),
-				("id_client", response.client_id),
-				("login", Login),
-                ("client_names", response.client_names));
-
-
-			//await Shell.Current.GoToAsync("//ChatPage");
-			await Shell.Current.Navigation.PushAsync(new Chat());
-		}
-
+		//Other
 
 		[RelayCommand]
 		public void ChangeLogin()
@@ -81,5 +98,13 @@ namespace RTCChat.MVVM
 			Preferences.Set("login", Login);
 		}
 
+		[RelayCommand]
+		public async Task OpenColorSettings()
+		{
+			await Shell.Current.Navigation.PushAsync(new ColorSettings());
+		}
+
+		[RelayCommand]
+		public void CloseOverlay() => OverlayManager.CloseOverlay();
 	}
 }

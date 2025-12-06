@@ -12,10 +12,28 @@ public partial class MainPageV2 : ContentPage
 		InitializeComponent();
 		viewModel = new MenuVM();
 		BindingContext = viewModel;
-		viewModel.SetOrigin(OverlayBorder);
+		viewModel.OverlayManager.SetOrigin(OverlayBorder);
 	}
 
-	private void ChangeLogin(object sender, FocusEventArgs e) => viewModel.ChangeLogin();
+	protected override bool OnBackButtonPressed()
+	{
+		viewModel.OverlayManager.CloseOverlay();
+
+		return true;
+
+		// // Use the line above if you want to just disable the Back action. 
+		// // If you want to instead bind it to the same command as 
+		// // the BackButtonBehavior, use something like this :
+		//
+		// if (BindingContext is BaseViewModel vm)
+		// {
+		//     vm.BackButtonPressed();
+		//     return true;
+		// }
+		// return false;
+	}
+
+	private void ChangeLogin(object sender, EventArgs e) => viewModel.ChangeLogin();
 
 	private void Join(object sender, EventArgs e)
 	{
@@ -30,7 +48,8 @@ public partial class MainPageV2 : ContentPage
 		Entry roomId = new Entry
 		{
 			Placeholder = "0 0 0 0",
-			Keyboard = Keyboard.Numeric,
+			Keyboard = Keyboard.Text,
+			TextTransform = TextTransform.Uppercase,
 			Behaviors =
 			{
 				new MaskedBehavior
@@ -40,7 +59,7 @@ public partial class MainPageV2 : ContentPage
 			},
 			HorizontalTextAlignment = TextAlignment.Center,
 		};
-		roomId.SetBinding(Entry.TextProperty, "Id_room");
+		roomId.SetBinding(Entry.TextProperty, "Id_room_format");
 
 		Button join = new Button
 		{
@@ -71,7 +90,7 @@ public partial class MainPageV2 : ContentPage
 		grid.SetRow(roomId, 1);
 		grid.SetRow(join, 2);
 
-		viewModel.AddOverlay(grid);
-		viewModel.ShowOverlay();
+		viewModel.OverlayManager.AddOverlay(grid);
+		viewModel.OverlayManager.ShowOverlay();
 	}
 }

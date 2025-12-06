@@ -22,16 +22,8 @@
                         </Grid.ColumnDefinitions>
                         <Label Text="{Binding Login}" VerticalTextAlignment="Center" Grid.Column="0" Margin="5,0"/>
                         <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End">
-                            <ImageButton Source="call.png" WidthRequest="28" Margin="10,0">
-                                <ImageButton.Behaviors>
-                                    <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                                </ImageButton.Behaviors>
-                            </ImageButton>
-                            <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0" Clicked="ShowInfo">
-                                <ImageButton.Behaviors>
-                                    <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                                </ImageButton.Behaviors>
-                            </ImageButton>
+                            <ImageButton Source="call.png" WidthRequest="28" Margin="10,0"/>
+                            <ImageButton Source="menu_button.png" WidthRequest="28" Margin="10,0" Clicked="ShowInfo"/>
                         </HorizontalStackLayout>
                     </Grid>
                 </Border.Content>
@@ -49,21 +41,14 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="36"/>
                         </Grid.ColumnDefinitions>
-                        <ImageButton Source="paperclip.png" Command="{Binding FileCommand}" Grid.Column="0">
-                            <ImageButton.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                            </ImageButton.Behaviors>
-                        </ImageButton>
-                        <Border Style="{StaticResource ElementBorder}" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource Background}" HeightRequest="46"  Margin="10,0" Grid.Column="1">
+                        <ImageButton Source="paperclip.png" Command="{Binding FileCommand}" Grid.Column="0"/>
+
+                        <Border Style="{StaticResource ElementBorder}" StrokeShape="RoundRectangle 10" BackgroundColor="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource DarkBackground}}" HeightRequest="46"  Margin="10,0" Grid.Column="1">
                             <Border.Content>
                                 <Entry x:Name="MessageEntry" Keyboard="Chat" Placeholder="Сообщение" Text="{Binding Message}" HorizontalTextAlignment="Start" VerticalOptions="Center" FontSize="18"/>
                             </Border.Content>
                         </Border>
-                        <ImageButton Source="paperplane.png" Command="{Binding SendMessageCommand}"  Grid.Column="2">
-                            <ImageButton.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Element1}"/>
-                            </ImageButton.Behaviors>
-                        </ImageButton>
+                        <ImageButton Source="paperplane.png" Command="{Binding SendMessageCommand}"  Grid.Column="2"/>
                     </Grid>
                 </Border.Content>
             </Border>
@@ -74,8 +59,8 @@
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CloseOverlayCommand}"/>
             </Grid.GestureRecognizers>
-            
-            <Border BackgroundColor="{StaticResource TBackground}">
+
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource TBackground}, Dark={StaticResource TDarkBackground}}">
                 
                 <Border.Content>
                     <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="0.1*,0.8*,0.1*">

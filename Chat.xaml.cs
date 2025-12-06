@@ -25,9 +25,28 @@ public partial class Chat : ContentPage
 			await viewModel.SendMessage();
 		};
 
-		viewModel.SetOrigin(OverlayBorder);
+		viewModel.OverlayManager.SetOrigin(OverlayBorder);
 	}
 	protected override bool OnBackButtonPressed()
+	{
+		if (viewModel.OverlayManager.CloseOverlay()) return true;
+
+		ShowDisconnect();
+
+		return true;
+
+		// // Use the line above if you want to just disable the Back action. 
+		// // If you want to instead bind it to the same command as 
+		// // the BackButtonBehavior, use something like this :
+		//
+		// if (BindingContext is BaseViewModel vm)
+		// {
+		//     vm.BackButtonPressed();
+		//     return true;
+		// }
+		// return false;
+	}
+	public void ShowDisconnect()
 	{
 		Label info = new Label
 		{
@@ -64,21 +83,8 @@ public partial class Chat : ContentPage
 		grid.SetRow(info, 0);
 		grid.SetRow(disconnect, 1);
 
-		viewModel.AddOverlay(grid);
-		viewModel.ShowOverlay();
-
-		return true;
-
-		// // Use the line above if you want to just disable the Back action. 
-		// // If you want to instead bind it to the same command as 
-		// // the BackButtonBehavior, use something like this :
-		//
-		// if (BindingContext is BaseViewModel vm)
-		// {
-		//     vm.BackButtonPressed();
-		//     return true;
-		// }
-		// return false;
+		viewModel.OverlayManager.AddOverlay(grid);
+		viewModel.OverlayManager.ShowOverlay();
 	}
 	public void ShowInfo(object sender, EventArgs e)
 	{
@@ -119,10 +125,7 @@ public partial class Chat : ContentPage
 			BorderColor = Application.Current.Resources["Red"] as Color,
 			Text = $"Отключиться",
 			Margin = new Thickness(0,20,0,0),
-			Command = new Command(() =>
-			{
-				OnBackButtonPressed();
-			}),
+			Command = new Command(ShowDisconnect),
 		};
 
 		ScrollView scroll = new ScrollView
@@ -154,7 +157,7 @@ public partial class Chat : ContentPage
 		grid.SetRow(disconnect, 3);
 		grid.SetRow(scroll, 2);
 
-		viewModel.AddOverlay(grid);
-		viewModel.ShowOverlay();
+		viewModel.OverlayManager.AddOverlay(grid);
+		viewModel.OverlayManager.ShowOverlay();
 	}
 }

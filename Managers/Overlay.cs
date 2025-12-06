@@ -8,28 +8,32 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace RTCChat.Managers
 {
-    public partial class Overlay : ObservableObject
+    public class Overlay
 	{
-		[ObservableProperty] public bool isOverlay = false;
+		private List<View> overlayStack = new List<View>();
+		private Border element;
 
-		[RelayCommand]
-        public virtual void CloseOverlay()
+		public delegate void OverlayVisible(bool isVisible);
+		public event OverlayVisible OverlayVisibleChanged;
+
+		public bool CloseOverlay()
 		{
+			if(overlayStack.Count == 0) return false;
 			overlayStack.RemoveAt(overlayStack.Count - 1);
 			if(overlayStack.Count == 0)
 			{
-				IsOverlay = false;
+				OverlayVisibleChanged.Invoke(false);
 			}
 			else SetOverlay(overlayStack.Last());
+
+			return true;
 		}
-		[RelayCommand]
-		public virtual void ShowOverlay() => IsOverlay = true;
-		[RelayCommand]
-		public virtual void ToggleOverlay() => IsOverlay = !IsOverlay;
-		
-		private List<View> overlayStack = new List<View>();
-		private Border element;
-		public void SetOrigin(Border element) => this.element = element;
+		public void ShowOverlay() => OverlayVisibleChanged.Invoke(true);
+
+		public void SetOrigin(Border element)
+		{
+			this.element = element;
+		}
 
 		public void SetOverlay(View content)
 		{

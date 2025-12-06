@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls.Shapes;
 using RTCChat.DataTemplate.Messages;
 using Type = RTCChat.DataTemplate.Messages.MessageData.Type;
 
@@ -81,10 +82,17 @@ namespace RTCChat.Managers
 										HorizontalTextAlignment = TextAlignment.Start
 									};
 
-									Image image = new Image()
+									Border imageArea = new Border()
 									{
-										Source = (data as PictureMessage).uri,
-										MaximumWidthRequest = Shell.Current.Window.Width * 0.8f
+										StrokeShape = new RoundRectangle()
+										{
+											CornerRadius = 5
+										},
+										WidthRequest = Shell.Current.Window.Width * 0.8f,
+										Content = new Image()
+										{
+											Source = (data as PictureMessage).uri,
+										}
 									};
 
 									Label time = new Label()
@@ -109,12 +117,12 @@ namespace RTCChat.Managers
 										Children =
 										{
 											login,
-											image,
+											imageArea,
 											time
 										}
 									};
 									inBorder.SetRow(login, 0);
-									inBorder.SetRow(image, 1);
+									inBorder.SetRow(imageArea, 1);
 									inBorder.SetRow(time, 2);
 								}
 								break;

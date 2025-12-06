@@ -17,23 +17,25 @@ using System.Net.Mime;
 
 namespace RTCChat.MVVM
 {
-	public partial class ChatVM : Overlay
+	public partial class ChatVM : ObservableObject
 	{
 		[ObservableProperty] private string login = "User";
-		[ObservableProperty] private int id_room;
+		[ObservableProperty] private string id_room;
 		[ObservableProperty] private int id_client;
 		[ObservableProperty] private string message;
 		[ObservableProperty] private string clients;
+		[ObservableProperty] private bool isOverlay;
 
 		private List<FileResult> selectedFiles;
 
 		private Dictionary<string, string> _clients;
 
 		public ChatManager ChatManager;
+		public Overlay OverlayManager = new Overlay();
 
 		public ChatVM()
 		{
-			Id_room = (int)DataTransportManager.GetData("id_room");
+			Id_room = (string?)DataTransportManager.GetData("id_room");
 			Id_client = (int)DataTransportManager.GetData("id_client");
 			Login = (string)DataTransportManager.GetData("login");
 
@@ -43,6 +45,8 @@ namespace RTCChat.MVVM
 			DataTransportManager.ClearData();
 
 			Task.Run(ReceiveMessage);
+
+			OverlayManager.OverlayVisibleChanged += (isVisible) => IsOverlay = isVisible;
 		}
 
 		public async Task ReceiveMessage()
@@ -107,6 +111,7 @@ namespace RTCChat.MVVM
 
 			return null;
 		}
+
 		[RelayCommand]
 		public async Task SendMessage()
 		{
@@ -117,5 +122,8 @@ namespace RTCChat.MVVM
 				Message = string.Empty;
 			}
 		}
+
+		[RelayCommand]
+		public void CloseOverlay() => OverlayManager.CloseOverlay();
 	}
 }

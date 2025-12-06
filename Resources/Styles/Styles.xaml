@@ -2,7 +2,9 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:behaviors="clr-namespace:RTCChat.Behaviors">
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
@@ -17,7 +19,7 @@
     
     <Style TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource DarkElement}}"/>
     </Style>
     <Style x:Key="ElementBorder" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
@@ -25,7 +27,6 @@
     </Style>
     <Style x:Key="MessageBorder1" TargetType="Border">
         <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
         <!--<Setter Property="VerticalOptions" Value="FillAndExpand"/>-->
         <Setter Property="MinimumHeightRequest" Value="54"/>
@@ -35,21 +36,21 @@
         <Setter Property="StrokeShape" Value="RoundRectangle 15"/>
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="StrokeThickness" Value="2"/>
-        <Setter Property="Stroke" Value="{StaticResource Element1}"/>
+        <Setter Property="Stroke" Value="{DynamicResource ContrastCustom}"/>
     </Style>
 
 
     <Style x:Key="ContrastButton" TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource White}" />
-        <Setter Property="BackgroundColor" Value="{StaticResource Element1}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource ContrastCustom}" />
     </Style>
     <Style x:Key="ContrastButton2" TargetType="Button">
         <Setter Property="BorderWidth" Value="2"/>
-        <Setter Property="BorderColor" Value="{StaticResource Element1}"/>
+        <Setter Property="BorderColor" Value="{DynamicResource ContrastCustom}"/>
     </Style>
     <Style TargetType="Button">
-        <Setter Property="TextColor" Value="{StaticResource Black}" />
-        <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource DarkElement}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="BorderWidth" Value="0"/>
@@ -70,10 +71,20 @@
                 </VisualStateGroup>
             </VisualStateGroupList>
         </Setter>
+        <Style.Behaviors>
+            <behaviors:ButtonTextColorBehavior/>
+        </Style.Behaviors>
+        
+    </Style>
+
+    <Style TargetType="ImageButton">
+        <Style.Behaviors>
+            <behaviors:ImageTintColorBehavior/>
+        </Style.Behaviors>
     </Style>
 
     <Style TargetType="Entry">
-        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="20" />
@@ -94,7 +105,7 @@
     </Style>
 
     <Style TargetType="Label">
-        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="20" />
@@ -114,7 +125,7 @@
     </Style>
 
     <Style TargetType="Label" x:Key="Mini">
-        <Setter Property="TextColor" Value="{StaticResource Text1}" />
+        <Setter Property="TextColor" Value="{StaticResource Gray400}" />
         <Setter Property="FontSize" Value="14" />
     </Style>
     
@@ -134,7 +145,10 @@
 
     <Style TargetType="Page" ApplyToDerivedTypes="True">
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource DarkBackground}}" />
+        <Style.Behaviors>
+            <behaviors:BarsColorBehavior/>
+        </Style.Behaviors>
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">

@@ -84,6 +84,9 @@
 	  <MauiXaml Update="Chat.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ColorSettings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MainPageV2.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
