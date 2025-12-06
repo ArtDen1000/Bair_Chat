@@ -16,6 +16,8 @@ namespace RTCChat.DataTemplate.Messages
 
 		private string text;
 
+		private const int k = 12;
+
 		public string formatText
 		{
 			get
@@ -24,29 +26,37 @@ namespace RTCChat.DataTemplate.Messages
 			}
 			private set
 			{
+				int windowWidth = (int)Math.Round(Shell.Current.Window.Width * 0.8f / k);
+
 				StringBuilder result = new StringBuilder();
 
 				string[] line = value.Split('\n');
 				for (int row = 0; row < line.Length; row++)
 				{
-					int[] wordSize;
 					string[] words = line[row].Split(' ');
 
-					wordSize = (from p in words select p.Length * 12).ToArray();
-
-					int tmp = 0;
-					for (int i = 0; i < wordSize.Length; i++)
+					for (int i = 0, size = 0, wordCount = 0; i < words.Length; i++)
 					{
-						tmp += wordSize[i];
-						if (tmp > (int)Math.Round(Shell.Current.Window.Width * 0.8f))
+						if(words[i].Length > windowWidth)
 						{
-							i--;
+							result.Append(words[i].Substring(0, windowWidth - size));
 							result.AppendLine();
-							tmp = 0;
+
+							words[i] = words[i].Substring(windowWidth - size, words[i].Length - windowWidth + size);
+
+							i--;
+							size = 0;
+						}
+						else if(size + words[i].Length > windowWidth)
+						{
+							result.AppendLine();
+							i--;
+							size = 0;
 						}
 						else
 						{
 							result.Append(words[i] + ' ');
+							size += words[i].Length;
 						}
 					}
 					if (row != line.Length - 1) result.AppendLine();
