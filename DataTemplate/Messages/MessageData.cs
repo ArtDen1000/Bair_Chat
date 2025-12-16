@@ -16,7 +16,8 @@ namespace RTCChat.DataTemplate.Messages
 		{
 			Sended,
 			Joined,
-			Leaved
+			Leaved,
+			Rejoined
 		}
 		public Type type { get; protected set; }
 		public string? time { get; private set; }

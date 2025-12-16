@@ -14,6 +14,7 @@ using System.Linq;
 using RTCChat.DataTemplate.Messages;
 using System.Collections;
 using System.Net.Mime;
+using System.Net.WebSockets;
 
 namespace RTCChat.MVVM
 {
@@ -35,18 +36,57 @@ namespace RTCChat.MVVM
 
 		public ChatVM()
 		{
-			Id_room = (string?)DataTransportManager.GetData("id_room");
-			Id_client = (int)DataTransportManager.GetData("id_client");
-			Login = (string)DataTransportManager.GetData("login");
-
-			_clients = (Dictionary<string, string>)DataTransportManager.GetData("client_names");
-			Clients =  string.Join('\n', _clients.Values);
+			GetData();
 
 			DataTransportManager.ClearData();
+
+			WebSocketManager.onDisconnect += Reconnect;
 
 			Task.Run(ReceiveMessage);
 
 			OverlayManager.OverlayVisibleChanged += (isVisible) => IsOverlay = isVisible;
+		}
+
+		~ChatVM()
+		{
+			WebSocketManager.onDisconnect -= Reconnect;
+		}
+
+		private void GetData()
+		{
+			Id_room = (string?)DataTransportManager.GetData("id_room");
+			Id_client = (int)DataTransportManager.GetData("id_client");
+			Login = (string)DataTransportManager.GetData("login");
+			_clients = (Dictionary<string, string>)DataTransportManager.GetData("client_names");
+
+			Clients = string.Join('\n', _clients.Values);
+
+			DataTransportManager.ClearData();
+		}
+
+		private async void Reconnect(WebSocketState state)
+		{
+			await Shell.Current.Navigation.PopToRootAsync();
+			//await Shell.Current.DisplayAlert("info", state.ToString(), "ok");
+			return;
+			//await WebSocketManager.Connect($"/join?name={Login}&room={Id_room}", async () =>
+			//{
+			//	string res = await WebSocketManager.Get();
+
+			//	ServerPrepareResponse response = JsonSerializer.Deserialize<ServerPrepareResponse>(res);
+			//	if (response.error != null) return;
+
+			//	Id_client = (int)response.client_id;
+			//	_clients = response.client_names;
+
+			//	Clients = string.Join('\n', _clients.Values);
+
+			//	ChatManager.AddMessage(new MessageData(Login, MessageData.Action.Recconect));
+
+			//	await Task.Run(ReceiveMessage);
+
+			//});
+
 		}
 
 		public async Task ReceiveMessage()
@@ -75,6 +115,12 @@ namespace RTCChat.MVVM
 						{
 							isClient = roomMessage.client_id == Id_client,
 						});
+						break;
+					case ServerRoomMessage.Action.Rejoined:
+						_clients.Add(roomMessage.client_id.ToString(), roomMessage.message_data);
+						Clients = string.Join('\n', _clients.Values);
+
+						ChatManager.AddMessage(new MessageData(_clients[roomMessage.client_id.ToString()], MessageData.Action.Rejoined));
 						break;
 				}
 				

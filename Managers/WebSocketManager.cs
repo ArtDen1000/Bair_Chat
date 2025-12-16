@@ -22,7 +22,7 @@ namespace RTCChat.Managers
 			{
 				webSocket = new ClientWebSocket();
 
-				await webSocket.ConnectAsync(new Uri(Preferences.Get("ip", "ws://0.0.0.0:22") + path), default);
+				await webSocket.ConnectAsync(new Uri(Preferences.Get("ip", "ws://0.0.0.0:22") + path), CancellationToken.None);
 
 				action.Invoke();
 
@@ -31,17 +31,28 @@ namespace RTCChat.Managers
 
 				return true;
 			}
-			catch(WebSocketException ex)
+			catch
 			{
-				await Shell.Current.DisplayAlert("Ошибка подключения", ex.Message, "Ок");
+				await Shell.Current.DisplayAlert("Ошибка", "Ошибка подключения", "Ок");
 				return false;
 			}
 
 		}
-        public static void Disconnect()
+        public static async Task<bool> Disconnect(System.Action action)
 		{
-			Shell.Current.Navigation.PopToRootAsync();
-			webSocket.Dispose();
+			try
+			{
+				await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client disconnect", CancellationToken.None);
+
+				action.Invoke();
+
+				return true;
+			}
+			catch
+			{
+				await Shell.Current.DisplayAlert("Ошибка", "Ошибка отключения", "Ок");
+				return false;
+			}
 		}
 
 		public static async Task Send<T>(T obj)
@@ -81,22 +92,32 @@ namespace RTCChat.Managers
 
 
 
-		public delegate void OnDisconnect();
+		public delegate void OnDisconnect(WebSocketState state);
 		public static event OnDisconnect? onDisconnect;
 
-		private static async void CheckState(object obj)
+		private static void CheckState(object obj)
 		{
-			while (true)
+			try
 			{
-				if(webSocket.State != WebSocketState.Open)
+				while (true)
 				{
-					onDisconnect?.Invoke();
-					//await Shell.Current.GoToAsync("//MainPage");
-					await Shell.Current.Navigation.PopToRootAsync();
-
-					return;
+					if (webSocket.State != WebSocketState.Open)
+					{
+						switch (webSocket.State)
+						{
+							case WebSocketState.Aborted:
+								onDisconnect?.Invoke(webSocket.State);
+								break;
+						}
+						return;
+					}
 				}
 			}
+			catch
+			{
+				Console.WriteLine("Error");
+			}
+			
 		}
 	}
 }

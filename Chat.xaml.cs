@@ -62,9 +62,9 @@ public partial class Chat : ContentPage
 			BorderColor = Application.Current.Resources["Red"] as Color,
 			Text = $"Да",
 			Margin = new Thickness(0, 20, 0, 0),
-			Command = new Command(() =>
+			Command = new Command(async() =>
 			{
-				WebSocketManager.Disconnect();
+				await WebSocketManager.Disconnect(async () => await Shell.Current.Navigation.PopToRootAsync());
 			}),
 		};
 

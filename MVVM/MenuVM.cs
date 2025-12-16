@@ -16,10 +16,11 @@ namespace RTCChat.MVVM
     {
 		[ObservableProperty] private string title = string.Empty;
         [ObservableProperty] public string login = "User";
-        [ObservableProperty] public string id_room_format;
+        [ObservableProperty] public string id_room_format = string.Empty;
 		[ObservableProperty] public bool isOverlay;
 
-		private string id_room { get { return Id_room_format.Replace(" ", string.Empty); } set => id_room_format = value; }
+
+		private string id_room { get => Id_room_format.Length > 0 ? Id_room_format.Replace(" ", string.Empty) : string.Empty; set => Id_room_format = value; }
 
 		private string[] titles =
         {
@@ -75,8 +76,6 @@ namespace RTCChat.MVVM
 				("login", Login),
 				("client_names", response.client_names));
 
-
-			//await Shell.Current.GoToAsync("//ChatPage");
 			await Shell.Current.Navigation.PushAsync(new Chat());
 		}
 

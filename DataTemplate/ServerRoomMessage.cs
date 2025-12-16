@@ -12,7 +12,8 @@ namespace RTCChat.DataTemplate
         {
             Sended,
             Joined,
-            Leaved
+            Leaved,
+            Rejoined
 		}
 
         public Action action { get; set; }

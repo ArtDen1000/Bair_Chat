@@ -148,6 +148,13 @@ namespace RTCChat.Managers
 							HorizontalTextAlignment = TextAlignment.Center,
 						});
 						break;
+					case MessageData.Action.Rejoined:
+						ChatLayout.Children.Add(new Label()
+						{
+							Text = $"{data.client} переподключился",
+							HorizontalTextAlignment = TextAlignment.Center,
+						});
+						break;
 				}
 			});
 		}
